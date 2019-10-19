@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="untitled"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/harry/CLionProjects/untitled/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/harry/CLionProjects/untitled/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="untitled">
+				<Option output="/home/harry/CLionProjects/untitled/cmake-build-debug/untitled" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/harry/CLionProjects/untitled/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="untitled/fast">
+				<Option output="/home/harry/CLionProjects/untitled/cmake-build-debug/untitled" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/harry/CLionProjects/untitled/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 untitled/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/harry/CLionProjects/untitled/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/harry/CLionProjects/untitled/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/JXJ.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/JXJ.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/b_t.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/b_t.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/competitve_class.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/competitve_class.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/demo.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/demo.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/dp_.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/dp_.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/graph.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/graph.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/heap.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/heap.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/seg2tree.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/seg2tree.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/seg_tree.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/seg_tree.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/stl.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/stl.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/trie.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/headers/trie.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/main.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/harry/CLionProjects/untitled/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
