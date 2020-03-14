@@ -1,0 +1,73 @@
+{
+	"header snippet": {
+		"prefix": "!",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"#define ll long long",
+			"#define F(a, b, i) for (int i = a; i < b; i++)",
+			"#define f(a, b, i) for (int i = a; i >= b; i--)",
+			"#define m 1000000007",
+			"",
+			"int main(){",
+			"",
+			"  return 0;",
+			"}"
+		],
+		"description": "header snippet"
+	},
+	"graph": {
+		"prefix": "graph",
+		"body": [
+			"int n,e,x,y;",
+			"cin>>n>>e;",
+			"vector<vector<int>> graph(n);",
+			"F(0,e,i){",
+			"    cin>>x>>y;",
+			"    graph[x-1].push_back(y-1);",
+			"    graph[y-1].push_back(x-1);",
+			"}",
+			"vector<bool> visited(n,false);"
+		],
+		"description": "graph"
+	},
+	"dfs": {
+		"prefix": "dfs",
+		"body": [
+			"void dfs(vector<vector<int>>& graph,int sv,vector<bool>& visited){",
+			"    visited[sv] = true;",
+			"    cout<<sv<<\" \";",
+			"    for(int cv : graph[sv]){",
+			"        if(!visited[cv])",
+			"            dfs(graph,cv,visited);",
+			"    }",
+			"}"
+		],
+		"description": "dfs"
+	},
+
+	"bfs": {
+		"prefix": "bfs",
+		"body": [
+		  "void bfs(vector<vector<int>> &graph, int sv, vector<bool>visited)",
+		  "{",
+		  "    queue<int> q;",
+		  "    q.push(sv);",
+		  "    visited[sv] = true;",
+		  "",
+		  "    while (!q.empty()){",
+		  "        sv = q.front();",
+		  "        cout << sv << \" \";",
+		  "        q.pop();",
+		  "        for (int cv : graph[sv]){",
+		  "            if (!visited[cv]){",
+		  "                visited[cv] = true;",
+		  "                q.push(cv);",
+		  "            }",
+		  "        }",
+		  "    }",
+		  "}"
+		],
+		"description": "bfs"
+	  }
+}
