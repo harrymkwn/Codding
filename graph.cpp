@@ -5,68 +5,65 @@ using namespace std;
 #define f(a, b, i) for (int i = a; i >= b; i--)
 #define m 1000000007
 
-template <typename T>
-void vp(T a)
-{
-    for (int i = 0; i < a.size(); i++)
-    {
-        cout << a[i] << " ";
+template<typename T>
+void vp(T a){
+    cout<<"\n";
+    for(int i=0;i<a.size();i++){
+        cout<<a[i].s<<" "<<a[i].d << " "<<a[i].w<<"\n";
     }
-    cout << "\n";
+}
+struct edge
+{
+    int s,d,w;
+    edge() : s(0),d(0),w(0){};
+};
+
+bool check(edge a,edge b){
+    if(a.w != b.w)return a.w< b.w;
+    else if (a.d!= b.d) return a.d < b.d;
+    else a.s<b.s;
 }
 
-vector<int> restore_path(vector<int>& p,int sv,int ev){
+int find(vector<int> parent, int point)
+{
+    while (parent[point] != point)
+        point = parent[point];
 
-    vector<int> path;
-    for (int i = ev; i != sv; i = p[i]) 
-    {
-        path.push_back(i);
-    }
-    path.push_back(sv);
-    reverse(path.begin(),path.end());
-    return path;
+    return point;
+}
+
+vector<edge> kruskal(vector<edge> edges ,vector<bool> visited,int e,int sv){
     
-}
-
-int dijkstra(vector<vector<pair<int, int>>> &graph, vector<bool> visited, int sv, int ev)
-{
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
-    vector<int> dist(graph.size(), INT_MAX);
-    vector<int> p(graph.size(),-1);
-    dist[sv] = 0;
-    p[sv]=sv;
-    q.push({0, sv});
-    pair<int, int> ele;
-    while (!q.empty())
+    sort(edges.begin(),edges.end(),check);
+    
+    vector<edge> mst;
+    vector<int> parent(e+1,-1);
+    F(0,e+1,i)parent[i]=i;
+    int count=0,i=0;
+    while (count < e)
     {
-        ele = q.top();
-        q.pop();
-        for (auto cv : graph[ele.second])
-        {
-            if (dist[ele.second] + cv.second < dist[cv.first])
-            {
-                dist[cv.first] = dist[ele.second] + cv.second;
-                q.push({dist[cv.first], cv.first});
-                p[cv.first] = ele.second;
-            }
+        int ps = find(parent,edges[i].s);
+        int pd = find(parent,edges[i].d);
+
+        if(ps!= pd){
+            mst.push_back(edges[i]);
+            count++;
+            parent[pd] = ps;
         }
+        i++;
     }
-    vector<int> path = restore_path(p,sv,ev);
-    vp(path);
-    return dist[ev];
+    return mst;
 }
 
-int main()
-{
+int main(){
     int n, e, x, y, w;
     cin >> n >> e;
-    vector<vector<pair<int, int>>> graph(n);
+    vector<edge> edges(e);
     F(0, e, i){
-       cin >> x >> y >> w;
-       graph[x - 1].push_back({y - 1, w});
-       graph[y - 1].push_back({x - 1, w});
+       cin >> edges[i].s >> edges[i].d >> edges[i].w;
     }
     vector<bool> visited(n, false);
-    cout << dijkstra(graph, visited, 0, 4);
+    vector<edge> mst = kruskal(edges,visited,n-1,0);
+    vp(mst);
     return 0;
 }
