@@ -1,41 +1,30 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#define F(a, b, i) for (int i = a; i < b; i++)
+#define f(a, b, i) for (int i = a; i >= b; i--)
+#define m 1000000007
 
-
-int knapsnack(int* val,int* wt,int W,int n){
-	int** dp = new int*[n+1];
-	for(int i=0;i<=n;i++){
-		dp[i] = new int[W+1];
-	}
-
-	for(int i=0;i<=W;i++){
-		dp[0][i] = 0;
-	}
-	for(int i=0;i<=n;i++){
-		dp[i][0] = 0;
-	}
-
-	for(int i=1;i<=n;i++){
-		for(int w=0;w<=W;w++){
-
-			dp[i][w] = dp[i-1][w];
-			if(wt[i-1] <= w){
-				dp[i][w] = max(dp[i][w],val[i-1] + dp[i-1][w-wt[i-1]]);
-			}
-		}
-	}
-
-	int ans = dp[n][W];
-	delete dp;
-	return ans;
+int knapsnack(vector<int> val, vector<int> wt, int w, int n){
+vector<vector<int>> dp(n + 1, vector<int>(w + 1, 0));
+F(1, n + 1, i){
+F(1, w + 1, j){
+dp[i][j] = dp[i - 1][j];
+if (j >= wt[i - 1])
+dp[i][j] = max(dp[i][j], dp[i - 1][j - wt[i - 1]] + val[i - 1]);
 }
-int main(){
-	
-	int val[] = {5,4,8,6};
-	int wt[] = {1,2,3,5};
+}
+return dp[n][w];
+}
+
+int main()
+{
+
+	vector<int> val = {5, 4, 8, 6};
+	vector<int> wt = {1, 2, 3, 5};
 
 	int W = 5;
 	int n = 4;
 
-	cout << knapsnack(val,wt,W,n)<<endl;
+	cout << knapsnack(val, wt, W, n) << endl;
 }
