@@ -18,7 +18,6 @@ void build_tree(vector<int> &tree, vector<int> arr, int start, int end, int in)
 
     tree[in] = tree[2 * in] + tree[2 * in + 1];
 }
-
 void update(vector<int> &tree, vector<int> &arr, int start, int end, int in, int ind, int val)
 {
 
@@ -36,7 +35,6 @@ void update(vector<int> &tree, vector<int> &arr, int start, int end, int in, int
 
     tree[in] = tree[2 * in] + tree[2 * in + 1];
 }
-
 int query(vector<int> tree, vector<int> arr, int start, int end, int in, int l, int r)
 {
 
@@ -71,16 +69,13 @@ int main()
     cin >> n;
     vector<int> arr(n, 0);
     F(0, n, i)
-        cin >> arr[i];
+    cin >> arr[i];
 
     int h = (int)ceil(log2(n));
     int size = 2 * pow(2, h);
     vector<int> tree(size, 0);
 
-    build_tree(tree, arr, 0, n - 1, 1);
-    print_tree(tree);
-    update(tree, arr, 0, n - 1, 1, 4, 10);
-    print_tree(tree);
-
+    build_tree(tree,arr,0,n-1,1);
+    cout<<query(tree,arr,0,n-1,1,2,4);
     return 0;
 }

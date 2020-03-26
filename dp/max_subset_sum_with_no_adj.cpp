@@ -6,17 +6,17 @@ using namespace std;
 #define m 1000000007
 
 int find_max(vector<int> arr,int i){
-//     if(i<0)return 0;
-//     return max(find_max(arr,i-2)+arr[i],find_max(arr,i-1));
-// }
-    vector<int> dp(arr.size(),0);
-    dp[0] = arr[0];
-    dp[1] = arr[1];
-    F(2,i+1,j){
-        dp[j] = max(dp[j-2]+arr[j],dp[j-1]);
-    }
-    return dp[i];
+    if(i<0)return 0;
+    return max(find_max(arr,i-2)+arr[i],find_max(arr,i-1));
 }
+//     vector<int> dp(arr.size(),0);
+//     dp[0] = arr[0];
+//     dp[1] = arr[1];
+//     F(2,i+1,j){
+//         dp[j] = max(dp[j-2]+arr[j],dp[j-1]);
+//     }
+//     return dp[i];
+// }
 
 int main(){
 
