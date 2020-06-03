@@ -4,8 +4,6 @@ using namespace std;
 #define mod 1000000007
 
 int main(){
-  for(int i=0;i<10;i++){
-  cout<<i<<"\n";
-  } 
+  cout<<"herat youre command is working\n";
   return 0;
 }
