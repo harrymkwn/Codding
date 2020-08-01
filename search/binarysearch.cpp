@@ -5,7 +5,7 @@ using namespace std;
 
 int binaryHelper(vector<int>array,int start,int end,int target){
 
-    if(start<end){
+    if(start<=end){
         int mid = (start+end)>>1;
         if(array[mid]==target)return mid;
         if(array[mid]>target)return binaryHelper(array,start,mid-1,target);
@@ -19,6 +19,6 @@ int binarySearch(vector<int> array,int target){
 }
 
 int main(){
-  cout<<binarySearch({0,1,2,3,4,5,5,5,6,6,7,8},6)<<"\n";
+  cout<<binarySearch({0,1,2,3,4,10},10)<<"\n";
   return 0;
 }
