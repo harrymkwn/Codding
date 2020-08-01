@@ -3,50 +3,50 @@ using namespace std;
 #define ll long long
 #define mod 1000000007
 
-vector<int> knuthMorisPrattPatternSearching(string str,string ptn){
-    vector<int> suf(ptn.size()+1,0);
-    vector<int> start;
-    for(int j=0,i=1;i<ptn.size();i++){
-        if(ptn[i]==ptn[j] && i!=j){suf[i]=j+1;j++;}
+bool/*vector<int> */knuthMorisPrattPatternSearching(string str,string substr){
+    vector<int> suf(substr.size()+1,0);
+    // vector<int> start;
+    for(int j=0,i=1;i<substr.size();i++){
+        if(substr[i]==substr[j] && i!=j){suf[i]=j+1;j++;}
         else {
             j=0;
-            if(ptn[i]==ptn[j]){suf[i]=j+1;j++;}
+            if(substr[i]==substr[j]){suf[i]=j+1;j++;}
         }
     }
     
     for(int j=0,i=0;i<str.size();){
-        if(str[i]==ptn[j]){
-            while(str[i]==ptn[j]){
+        if(str[i]==substr[j]){
+            while(str[i]==substr[j]){
                 i++;
                 j++;
             }
-            if(j==ptn.size()){start.push_back(i-ptn.size());i++;j=0;}
+            if(j==substr.size()){/*start.push_back(i-substr.size());i++;j=0;*/return true;}
             else j=suf[i];
         }else i++;
     }
-    return start;
+    return false;
 }
 
-string finalized(string str,string ptn){
-    vector<int> v = knuthMorisPrattPatternSearching(str,ptn);
-    for(int i=0;i<v.size();i++)cout<<v[i]<<" ";
-    cout<<"\n";
-    int j=0;
-    if(v.empty())return str;
-    for(int i=0;i<str.size();i++){
-        if(i>v[j])j++;
-        else if(i==v[j]){
-            str.insert(v[j] + j,"_");
-            str.insert(v[j] + ptn.size() + j+1,"_");
-            i=v[j] + ptn.size() + 2*j + 1;
-            j++;
-        }
-    }
-    return str;
-}
+// string finalized(string str,string substr){
+//     vector<int> v = knuthMorisPrattPatternSearching(str,substr);
+//     for(int i=0;i<v.size();i++)cout<<v[i]<<" ";
+//     cout<<"\n";
+//     int j=0;
+//     if(v.empty())return str;
+//     for(int i=0;i<str.size();i++){
+//         if(i>v[j])j++;
+//         else if(i==v[j]){
+//             str.insert(v[j] + j,"_");
+//             str.insert(v[j] + substr.size() + j+1,"_");
+//             i=v[j] + substr.size() + 2*j + 1;
+//             j++;
+//         }
+//     }
+//     return str;
+// }
 
 int main(){
   
-  cout<<finalized("abcaabababaaaababc","aba")<<"\n";
+  cout<<knuthMorisPrattPatternSearching("abcaabababaaaababc","abga")<<"\n";
   return 0;
 }
