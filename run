@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ $1 = "c++" ]];then 
+	if [[ $2 = "in" ]];then
+		g++ $3.cpp
+		./a.out > $2
+	else
+		g++ $2.cpp
+		./a.out
+	fi
+elif [[ $1 = "java" ]];then
+	javac $2.java
+	java $2
+elif [[ $1 = "python" ]];then
+	python3 $2.py
+elif [[ $1 = "bash" ]];then
+	chmod 744 $2
+	./$2
+elif [[ $1 = "js" ]];then
+	node $2.js
+fi
