@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define mod 1000000007
+
+int find(int i,int N,int K,vector<int> &arr){
+    if(i>N)return 0;
+    if(i==N)return 1;
+
+    int first=0,second=0,third=0;
+
+    if(i+1<=N && arr[i+1]!=0){
+        first = find(i+1,N,K)%mod;
+        arr[i+1]=first;
+    }
+    if(i+2<=N && arr[i+2]!=0){
+        second = find(i+2,N,K)%mod;
+        arr[i+2] = second;
+    }
+    if(K>0 && i+3<=N && arr[i+3]!=0){
+        third = find(i+3,N,K-1)%mod;
+        arr[i+3] = third;
+    }
+    return (first+second+third)%mod;
+}
+
+int solution (int N, int K) {
+    // int* arr = new int
+    std::vector<int> arr(N+1,0);
+    return find(0,N,K,arr);
+}
+
+int main() {
+
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int T;
+    cin >> T;
+    for(int t_i = 0; t_i < T; t_i++)
+    {
+        int N;
+        cin >> N;
+        int K;
+        cin >> K;
+
+        int out_;
+        out_ = solution(N, K);
+        cout << out_;
+        cout << "\n";
+    }
+}

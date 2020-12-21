@@ -10,13 +10,13 @@ template <typename T> ostream &operator<<(ostream &os, const vector<T> &vec) { o
 void solve(){
     int m,n;
     cin>>n>>m;
-    vector<int> arr(n);
+    vector<ll> arr(n);
     cin>>arr;
-    int a =-1e9;
-    int b =0;
+    long long  a =-1e9;
+    long long  b =0;
 
     for(int i=0;i<n;++i){
-        int ah=a,bh=b;
+        ll ah=a,bh=b;
         ah = max(ah,b+arr[i]);
         bh = max(bh,a-arr[i]);
         a=ah;b=bh;

@@ -36,7 +36,7 @@ int main()
     cout << foo << " " << bar << " " << baz << "\n";
 
     cout<<  baz[0] <<" "<<baz[1]<<"\n";
-
+    
 
     cout<<" ones in bitset : "<<baz.count()<<"\n";
     cout<<" zeroes in bitset : "<<baz.size() -  baz.count()<<"\n";

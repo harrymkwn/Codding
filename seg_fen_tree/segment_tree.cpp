@@ -78,4 +78,4 @@ int main()
     build_tree(tree,arr,0,n-1,1);
     cout<<query(tree,arr,0,n-1,1,2,4);
     return 0;
-}
+} 
