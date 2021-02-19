@@ -1,15 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
-template <typename T> istream &operator>>(istream &is, vector<T> &vec){for (auto &v : vec)is >> v;return is;}
 
-void abc(vector<int> arr){
 
-}
+class abc{
+  vector<int> arr;
+
+public:
+  abc(vector<int> demo){
+    arr = demo;
+
+  }
+
+  void print(){
+    for(int x:arr)cout<<x<<" ";
+
+    cout<<"\n";
+  }
+};
 
 int main(){
- string s = "abcd";
-
-  s.push_back('a');
-  cout<<s<<"\n";
+  abc* obj = new abc({1,2,3,4,5});
+  obj->print();
   return 0;
 }
