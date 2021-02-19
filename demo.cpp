@@ -2,15 +2,14 @@
 using namespace std;
 template <typename T> istream &operator>>(istream &is, vector<T> &vec){for (auto &v : vec)is >> v;return is;}
 
+void abc(vector<int> arr){
+
+}
 
 int main(){
-  set<int> s={1,2,3,4};
-  vector<int> arr;
-  try{
-    cout<<arr.at(5)<<"\n";
-  }
-  catch(exception& e){
-    cout<<"array index out of bound\n";
-  }
+ string s = "abcd";
+
+  s.push_back('a');
+  cout<<s<<"\n";
   return 0;
 }
