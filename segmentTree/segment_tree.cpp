@@ -21,7 +21,7 @@ void build_tree(vector<int> &tree, vector<int> arr, int start, int end, int in)
 void update(vector<int> &tree, vector<int> &arr, int start, int end, int in, int ind, int val)
 {
 
-    if (start == ind)
+    if (start == ind && end==ind)
     {
         tree[in] = val;
         arr[ind] = val;

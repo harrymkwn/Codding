@@ -2,13 +2,13 @@
 using namespace std;
 
 
-int lcs(string s1,string s2,vector<vector<int>> &lookup){
-    int n = s1.length(),m=s2.length();
-    for(int i=0;i<=n;i++)lookup[i][0]=i;
-    for(int i=0;i<=m;i++)lookup[0][i]=i;
+int lcs(string s1,string s2,vector<vectorn<int>> &lookup){
+    int m = s1.length(),n=s2.length();
+    for(int i=0;i<=m;i++)lookup[i][0]=i;
+    for(int i=0;i<=n;i++)lookup[0][i]=i;
     
-    for(int i=1;i<=n;i++){
-        for(int j=1;j<=m;j++){
+    for(int i=1;i<=m;i++){
+        for(int j=1;j<=n;j++){
             int editdist =0;
             if(s1[i-1]!=s2[j-1])editdist++;
             
@@ -16,14 +16,14 @@ int lcs(string s1,string s2,vector<vector<int>> &lookup){
         }
     }
 
-    return lookup[n][m];
+    return lookup[m][n];
 }
 
 int main(){
     string s1,s2;
     cin>>s1>>s2;
-    int n = s1.length(),m=s2.length();
-    vector<vector<int>> lookup(n+1,vector<int>(m+1,0));
+    int m = s1.length(),n=s2.length();
+    vector<vector<int>> lookup(m+1,vector<int>(n+1,0));
 
     cout<<lcs(s1,s2,lookup)<<"\n";
 

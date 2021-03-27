@@ -1,25 +1,28 @@
-#include<bits/stdc++.h>
-using namespace std;
 
+// C++ program to demonstrate static 
+// variables inside a class 
+  
+#include<bits/stdc++.h> 
+using namespace std; 
+  
+class GfG 
+{ 
+   public: 
+     static int i;
 
-class abc{
-  vector<int> arr;
+     GfG(){
+       i = 1;
+     } 
+}; 
+  
 
-public:
-  abc(vector<int> demo){
-    arr = demo;
-
-  }
-
-  void print(){
-    for(int x:arr)cout<<x<<" ";
-
-    cout<<"\n";
-  }
-};
-
-int main(){
-  abc* obj = new abc({1,2,3,4,5});
-  obj->print();
-  return 0;
-}
+int main() 
+{ 
+  GfG obj1; 
+  GfG obj2; 
+  obj1.i =2; 
+  obj2.i = 3; 
+    
+  // prints value of i 
+  cout << obj1.i<<" "<<obj2.i;    
+} 
