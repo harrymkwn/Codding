@@ -2,28 +2,25 @@
 #include <queue>
 using namespace std;
 
-void print(int **edges, int n, int sv)
+void bfs(vector<vector<int>> &graph,int sv)
 {
+    int n = graph.size();
     queue<int> pev;
-    bool *visited = new bool[n];
-    for (int i = 0; i < n; i++)
-        visited[i] = false;
+    vector<bool> isVisited(n,false);
 
     pev.push(sv);
-    visited[sv] = true;
+    isVisited[sv] = true;
+    
     while (!pev.empty())
     {
         int cv = pev.front();
         pev.pop();
-        cout << cv << endl;
-        for (int i = 0; i < n; i++)
+
+        for(auto x : graph[cv])
         {
-            if (i == cv)
-                continue;
-            if (edges[cv][i] == 1 && !visited[i])
-            {
-                pev.push(i);
-                visited[i] = true;
+            if(!isVisited[x]){
+                pev.push(x);
+                isVisited[x] = true;
             }
         }
     }
@@ -31,24 +28,15 @@ void print(int **edges, int n, int sv)
 
 int main()
 {
-    int n;
-    int e;
-    cin >> n >> e;
+    int n,e,u,v;
+    cin>>n>>e;
+    vector<vector<int>> adj(n);
+    for(int i=0;i<e;i++){
+        cin>>u>>v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    bfs(adj,0);
 
-    int **edges = new int *[n];
-    for (int i = 0; i < n; i++)
-    {
-        edges[i] = new int[n];
-        for (int j = 0; j < n; j++)
-            edges[i][j] = 0;
-    }
-    int f, s;
-    for (int i = 0; i < e; i++)
-    {
-        cin >> f >> s;
-        edges[f][s] = 1;
-        edges[s][f] = 1;
-    }
-    print(edges, n, 0);
     return 0;
 }
