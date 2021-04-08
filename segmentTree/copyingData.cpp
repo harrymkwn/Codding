@@ -12,16 +12,31 @@ class SegmentTree{
     void updateUtils(int start,int end,int in,int l,int r,int x,int y){
         if(r<start || end < l)return;
 
+
         if(l <= start && end <= r){
             this->tree[in] = {x,y};
             return;
         }
-
         int mid = (start+end)>>1;
 
-        this->updateUtils(start,mid,2*in,l,r,x,y);
-        this->updateUtils(mid+1,end,2*in + 1,l,r,x,y);
-        
+        if(this->tree[in].first!=-1 && this->tree[in].second!=-1){
+            this->updateUtils(start,mid,2*in,start,mid,this->tree[in].first,this->tree[in].second);
+            this->updateUtils(mid+1,end,2*in+1,mid+1,end,this->tree[in].first,this->tree[in].second);
+            
+            if(r<=mid)this->updateUtils(start,mid,2*in,l,r,x,y);
+            else if(mid<l)this->updateUtils(mid+1,end,2*in+1,l,r,x,y);
+            else {
+                this->updateUtils(start,mid,2*in,l,r,x,y);
+                this->updateUtils(mid+1,end,2*in+1,l,r,x,y);
+
+            }
+            this->tree[in] = {-1,-1};
+        }
+        else{
+            
+            this->updateUtils(start,mid,2*in,l,r,x,y);
+            this->updateUtils(mid+1,end,2*in + 1,l,r,x,y);
+        }
     }
 
     pair<int,int> queryUtils(int start,int end,int in,int x){
@@ -88,13 +103,13 @@ int main(){
             cin>>x>>y>>k;
             x--,y--,k--;
             tree.update(x,y,k);
-            tree.print();
+            // tree.print();
         }
         else {
             cin>>x;
             x--;
             pair<int,int> temp = tree.query(x);
-            if(temp.second==-1)cout<<b[x]<<" first output \n";
+            if(temp.second==-1)cout<<b[x]<<"\n";
             else cout<<a[x - (temp.second - temp.first)]<<"\n";
             // else if(temp.second<=temp.first) cout<<a[x - (temp.first - temp.second)]<<"\n";
         }
