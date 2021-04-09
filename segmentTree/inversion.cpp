@@ -70,8 +70,6 @@ class SegmentTree{
         this->tree.resize(this->size,0);
     }
 
-
-
     void update(int index,int val){
         this->updateUtils(0,this->n-1,1,index-1,val);
     }
@@ -104,7 +102,20 @@ int main(){
     vector<int> arr(n,0);
     for(int i=0;i<n;i++)cin>>arr[i];
 
-    SegmentTree tree(arr);
+    SegmentTree tree(n);
 
+    multiset<int> s;
+    for(int i=0;i<n;i++){
+        
+        s.insert(arr[i]);
+
+        auto x = s.upper_bound(arr[i]);
+
+        int dist = distance(x,s.end());
+
+        tree.update(i,dist);
+    }
+
+    
     return 0;
 }
