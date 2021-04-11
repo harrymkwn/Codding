@@ -11,14 +11,14 @@ class queue1{
         return q.front();
     }
 
-    int add(int x){
+    void add(int x){
         while(!q.empty() && x < q.back()){
             q.pop_back();
         }
         q.push_back(x);
     }
 
-    int remove(int remove_element){
+    void remove(int remove_element){
         if(!q.empty() && q.front()==remove_element)q.pop_front();
     }
 };
@@ -34,7 +34,7 @@ class queue2{
         return q.front().first;
     }
 
-    int add(int x){
+    void add(int x){
         while(!q.empty() && x < q.back().first){
             q.pop_back();
         }
@@ -42,9 +42,9 @@ class queue2{
         this->c_add++;
     }
 
-    int remove(int remove_element){
-        if(!q.empty() && q.front().second == c_remove)q.pop_front();
-        c_remove++;
+    void remove(int remove_element){
+        if(!q.empty() && q.front().second == remove_element)q.pop_front();
+        this->c_remove++;
     }
 };
 
@@ -67,7 +67,7 @@ class queue3{
         return minimum;
     }
 
-    int add(int x){
+    void add(int x){
         int minimum= this->s1.empty() ? x : min(x,this->s1.top().second);
         this->s1.push({x,minimum});
     }
@@ -92,6 +92,11 @@ class queue3{
 };
 
 int main(){
-    
+    vector<int> arr({33,11,44,11,55});
+    queue1 q;
+    for(int i=0;i<5;i++){
+        q.add(arr[i]);
+        cout<<q.minimum()<<endl;
+    }
     return 0;
 }
