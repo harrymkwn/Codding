@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maxpric(vector<unsigned_int>& prices) {
+int maxpric(vector<unsigned>& prices) {
     int smallest = INT_MAX,diff=INT_MIN;
     for(int i=0;i<prices.size();i++){
         if(smallest>prices[i])smallest=prices[i];
