@@ -11,6 +11,7 @@ class SegmentTree{
         Node():val{0},count{0}{};
 
         Node merge( const Node  &t1, const Node &t2){
+            
             Node temp;
 
             temp.val = __gcd(t1.val,t2.val);
