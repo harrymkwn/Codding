@@ -66,7 +66,7 @@ class Solution {
     }
 public:
     int reversePairs(vector<int>& nums) {
-        init(nums)
+        init(nums);
         print();
     }
 };
