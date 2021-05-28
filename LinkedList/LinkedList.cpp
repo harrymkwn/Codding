@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// This is an input class. Do not edit.
-
 class LinkedList {
     struct node {
         int value;
@@ -49,6 +47,17 @@ class LinkedList {
             this->length = arr.size();
         } else {
             LinkedList();
+        }
+    }
+
+    ~LinkedList() {
+        node* cur = this->head;
+        node* next;
+
+        while (cur) {
+            next = cur->next;
+            free(cur);
+            cur = next;
         }
     }
 
@@ -104,7 +113,9 @@ class LinkedList {
             cout << "can`t remove from empty list\n\n";
             return;
         }
-        this->head = this->head->next;
+        node* temp = this->head;
+        this->head = temp->next;
+        free(temp);
         this->length--;
     }
 
@@ -114,6 +125,8 @@ class LinkedList {
             return;
         }
         if (!this->head->next) {
+            node* temp = this->head;
+            free(temp);
             this->head = NULL;
             this->tail = NULL;
             this->length--;
@@ -124,8 +137,10 @@ class LinkedList {
         while (temp->next->next) {
             temp = temp->next;
         }
+        node* f = temp->next;
         this->tail = temp;
         temp->next = NULL;
+        free(f);
         this->length--;
     }
 
@@ -145,9 +160,10 @@ class LinkedList {
             temp = temp->next;
             i++;
         }
-
+        node* f = temp->next;
         temp->next = temp->next->next;
         if (!temp->next) this->tail = temp;
+        free(f);
         this->length--;
     }
 
@@ -183,11 +199,28 @@ class LinkedList {
         int i = 0;
 
         while (i < idx) {
-			temp = temp->next;
-			i++;
+            temp = temp->next;
+            i++;
         }
 
-		return temp->value;
+        return temp->value;
+    }
+
+    int AtFromEnd(int idx){
+        return this->At(this->length-1-idx);
+    }
+
+    int find(int val) {
+        if (this->length < 0) return -1;
+
+        node* temp = this->head;
+        int i = 0;
+        while (temp) {
+            if (temp->value == val) return i;
+            temp = temp->next;
+            i++;
+        }
+        return -1;
     }
 
     void printLinkedList() {
@@ -213,8 +246,10 @@ class LinkedList {
 
 int main() {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    LinkedList* list = new LinkedList(arr);
+    LinkedList list(arr);
 
-    list->printLinkedList();
+    list.printLinkedList();
+    cout<<list.AtFromEnd(5)<<"\n";
     return 0;
 }
+
